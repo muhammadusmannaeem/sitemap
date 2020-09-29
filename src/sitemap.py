@@ -9,10 +9,8 @@ __status__ = "Production"
 
 from src.parser import Parser
 import re
-p = Parser()
-con = p.conn()
 
-class SiteMap:
+class sitemap(Parser):
 
     @staticmethod
     def conn():
@@ -25,7 +23,7 @@ class SiteMap:
         Raises:
             None.
         '''
-        return SiteMap
+        return sitemap
 
     @staticmethod
     def get_xml(url, what) :
@@ -39,16 +37,16 @@ class SiteMap:
         Raises:
             None.
         '''
-        html = con.get_html(url)
+        html = sitemap.get_html(url)
         if what == "url" :
-            urls = con.get_links(html)
+            urls = sitemap.get_links(html)
             xml = "<?xml version='1.0' encoding='UTF-8'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>"
             for i in range(len(urls)) :
-                xml += "<url><loc>" + url + str(urls[i]) + "</loc><lastmod>" + con.today_date() + "</lastmod></url>"
+                xml += "<url><loc>" + url + str(urls[i]) + "</loc><lastmod>" + sitemap.today_date() + "</lastmod></url>"
             xml += "</urlset>"
             return xml
         elif what == "image" :
-            urls = con.get_image_links(html)
+            urls = sitemap.get_image_links(html)
             xml = "<?xml version='1.0' encoding='UTF-8'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'><url>"
             for i in range(len(urls)) :
                 xml += "<image:image><image:loc>" + url + str(urls[i]) + "</image:loc></image:image>"
@@ -66,8 +64,8 @@ class SiteMap:
         Raises:
             None.
         '''
-        html = con.get_html(url)
-        urls = con.get_image_links(html)
+        html = sitemap.get_html(url)
+        urls = sitemap.get_image_links(html)
         if len(urls) == 0 :
             return False
         else : return True
@@ -94,7 +92,7 @@ class SiteMap:
         Args:
             xml: xml
         Returns:
-            None
+            Type of Error (If Any)
         Raises:
             None.
         '''
@@ -145,3 +143,51 @@ class SiteMap:
                 else : return "Error in <urlset...> tag"
             else : return "Error in <?xml...> tag"
             return "Validated xml Successfully. No Errors"
+
+    @staticmethod
+    def sitemap_submitter() :
+        '''
+        Submits sitemap to google
+        Args:
+            xml: xml
+        Returns:
+            Type of Error (If Any)
+        Raises:
+            None.
+
+        Put url : PUT https://www.googleapis.com/webmasters/v3/sites/siteUrl/sitemaps/feedpath
+        code : (Copied from StackOverflow) Below
+        '''
+        pass
+        # ToDo
+        '''
+        CLIENT_ID = 'xxxxx'
+        CLIENT_SECRET = 'yyyyyy'
+
+        OAUTH_SCOPE = 'https://www.googleapis.com/auth/webmasters'
+
+        # Redirect URI for installed apps
+        REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'
+
+        # Run through the OAuth flow and retrieve credentials
+        flow = OAuth2WebServerFlow(CLIENT_ID, CLIENT_SECRET, OAUTH_SCOPE, REDIRECT_URI)
+        authorize_url = flow.step1_get_authorize_url()
+        print ('Go to the following link in your browser: ' + authorize_url)
+        code = input('Enter verification code: ').strip()
+        credentials = flow.step2_exchange(code)
+
+        # Create an httplib2.Http object and authorize it with our credentials
+        http = httplib2.Http()
+        http = credentials.authorize(http)
+
+        webmasters_service = build('webmasters', 'v3', http=http)
+
+        WEBSITE = 'http://www.mywebsite.com'
+        SITEMAP_PATH = 'http://www.mywebsite.com/sitemaps/'
+        SITEMAPS_LIST = ['sitemap1.xml','sitemap2.xml','sitemap3.xml']
+
+        print ('Adding sitemaps to website ' + WEBSITE)
+        for sitemap in SITEMAPS_LIST:
+            print ('  '+SITEMAP_PATH + sitemap)
+            webmasters_service.sitemaps().submit(siteUrl=WEBSITE, feedpath=SITEMAP_PATH + sitemap)   # .execute()        # If error comes
+        '''
