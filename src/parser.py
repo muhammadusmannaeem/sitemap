@@ -1,4 +1,4 @@
-"""function.py: functions File."""
+"""parser.py: parser File."""
 __author__ = "Muhammad Usman Naeem"
 __license__ = "GPL-3"
 __version__ = "1.0.0"
@@ -11,7 +11,7 @@ import requests
 from datetime import date
 from bs4 import BeautifulSoup
 
-class Map:
+class Parser:
 
     @staticmethod
     def conn():
@@ -24,7 +24,7 @@ class Map:
         Raises:
             None.
         '''
-        return Map
+        return Parser
 
     @staticmethod
     def today_date():
@@ -103,19 +103,3 @@ class Map:
                 if url.endswith("png") or url.endswith("ico") or url.endswith("jpg") :
                     image_urls.append(url + "/")
         return image_urls
-
-    @staticmethod
-    def get_xml(req_url, urls, image_urls, date) :
-        xml = '''<?xml version='1.0' encoding='UTF-8'?>
-        <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-        '''
-
-        for i in range(len(urls)) :
-            xml += "\n  <url>\n    <loc>" + str(urls[i]) + "</loc>\n    <lastmod>" + date + "</lastmod>\n  </url>"
-
-        xml += "\n  <url>\n    <loc>" + req_url + "</loc>"
-        for i in range(len(image_urls)) :
-            xml += "\n    <image:image>\n      <image:loc>" + str(image_urls[i]) + "</image:loc>\n    </image:image>"
-
-        xml += "\n  </url>\n</urlset>"
-        return xml

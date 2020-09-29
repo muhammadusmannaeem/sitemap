@@ -7,19 +7,17 @@ __developers__ = "Muhammad Usman Naeem"
 __email__ = "usman.naeem2212@gmail.com"
 __status__ = "Production"
 
-from src.function import Map
-
-m = Map()
-conn = m.conn()
+from src.sitemap import SiteMap
+sm = SiteMap()
+conn = sm.conn()
 
 req_url = "https://www.muhammadumerfarooq.me"
-soup = conn.get_html(req_url)
-urls = conn.get_links(soup)
-image_urls = conn.get_image_links(soup)
-xml = conn.get_xml(req_url, urls, image_urls, conn.today_date())
 
-print(xml)
-quit()
-
-with open('sitemap.xml', 'w') as file:
-    file.write(xml)
+if conn.is_image(req_url) :
+    xml_1 = conn.get_xml(req_url, "url")
+    conn.write_on_file(xml_1, "sitemap_1.xml")
+    xml_2 = conn.get_xml(req_url, "image")
+    conn.write_on_file(xml_2, "sitemap_2.xml")
+else :
+    xml = conn.get_xml(req_url, "url")
+    conn.write_on_file(xml, "sitemap.xml")
