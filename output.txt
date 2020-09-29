@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+        <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+
+  <url>
+    <loc>/site.webmanifest/</loc>
+    <lastmod>2020-09-29</lastmod>
+  </url>
+  <url>
+    <loc>/safari-pinned-tab.svg/</loc>
+    <lastmod>2020-09-29</lastmod>
+  </url>
+  <url>
+    <loc>/css/app.9022449f.css/</loc>
+    <lastmod>2020-09-29</lastmod>
+  </url>
+  <url>
+    <loc>/css/chunk-vendors.7caec713.css/</loc>
+    <lastmod>2020-09-29</lastmod>
+  </url>
+  <url>
+    <loc>/js/app.ec07b562.js/</loc>
+    <lastmod>2020-09-29</lastmod>
+  </url>
+  <url>
+    <loc>/js/chunk-vendors.1658a062.js/</loc>
+    <lastmod>2020-09-29</lastmod>
+  </url>
+  <url>
+    <loc>/css/chunk-vendors.7caec713.css/</loc>
+    <lastmod>2020-09-29</lastmod>
+  </url>
+  <url>
+    <loc>/css/app.9022449f.css/</loc>
+    <lastmod>2020-09-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.muhammadumerfarooq.me</loc>
+    <image:image>
+      <image:loc>/favicon.ico/</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>/apple-touch-icon.png/</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>/favicon-32x32.png/</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>/favicon-16x16.png/</image:loc>
+    </image:image>
+  </url>
+</urlset>
