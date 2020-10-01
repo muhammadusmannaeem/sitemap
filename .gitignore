@@ -128,4 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+*.xml
+
 src/sitemap_submit.py

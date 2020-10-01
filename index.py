@@ -8,8 +8,7 @@ __email__ = "usman.naeem2212@gmail.com"
 __status__ = "Production"
 
 from src.sitemap import sitemap
-sm = sitemap()
-conn = sm.conn()
+conn = sitemap()
 
 req_url = "https://www.muhammadumerfarooq.me"
 
