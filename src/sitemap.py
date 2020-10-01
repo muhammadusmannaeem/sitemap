@@ -13,19 +13,6 @@ import re
 class sitemap(Parser):
 
     @staticmethod
-    def conn():
-        '''
-        Establishes Connection with class
-        Args:
-            None
-        Returns:
-            class
-        Raises:
-            None.
-        '''
-        return sitemap
-
-    @staticmethod
     def get_xml(url, what) :
         '''
         Generates xml of the links from html of the url

@@ -14,19 +14,6 @@ from bs4 import BeautifulSoup
 class Parser:
 
     @staticmethod
-    def conn():
-        '''
-        Establishes Connection with class
-        Args:
-            None
-        Returns:
-            class
-        Raises:
-            None.
-        '''
-        return Parser
-
-    @staticmethod
     def today_date():
         '''
         Returns Today's Date
