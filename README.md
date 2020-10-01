@@ -1,3 +1,4 @@
+
 # Sitemap
 Simple python project to generate, validate and submit sitemap to Google.
 
@@ -8,7 +9,7 @@ Simple python project to generate, validate and submit sitemap to Google.
 
 ## Contribution
 You're welcome to contribute to this project.
-But before making `PR` please open issue first, thanks for being contributer.
+you can find [contribution guideline here](https://github.com/Usman-Naeem/sitemap/blob/master/CONTRIBUTING.md)
 
 ## License
 GPL-3
