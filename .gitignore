@@ -131,3 +131,5 @@ dmypy.json
 *.xml
 
 src/sitemap_submit.py
+
+.vscode
