@@ -1,6 +1,7 @@
 ## CONTRIBUTING
 Contributions are welcome, and they are greatly appreciated! Every little bit helps! You can contribute in many ways.
-## Types of Contributions 
+
+## Types of Contributions
 -   Reporting a bug
 -   Discussing the current state of the code
 -   Submitting a fix

@@ -133,3 +133,4 @@ dmypy.json
 src/sitemap_submit.py
 
 .vscode
+config.txt
